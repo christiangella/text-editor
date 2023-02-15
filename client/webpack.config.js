@@ -18,12 +18,25 @@ module.exports = () => {
       path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
-      
+      new HtmlWebpackPlugin({
+        template: './index.html',
+        title: 'Text Editor',
+        favicon: './favicon.ico'
+      }),
+      new InjectManifest({
+        // TODO: add inject manifest
+      }),
+      new WebpackPwaManifest({
+        inject: true,
+        fingerprints: false,
+        name: 'JATE'
+        // ADD MORE DETAILS
+      })
     ],
 
     module: {
       rules: [
-        
+        // ADD RULES
       ],
     },
   };
