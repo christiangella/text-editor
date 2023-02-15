@@ -25,18 +25,49 @@ module.exports = () => {
       }),
       new InjectManifest({
         // TODO: add inject manifest
+        swSrc: './src-sw.js',
+        swDest: 'src-sw.js'
       }),
       new WebpackPwaManifest({
         inject: true,
         fingerprints: false,
-        name: 'JATE'
+        name: 'JATE (Just Another Text Editor)',
         // ADD MORE DETAILS
+        short_name: 'JATE',
+        description: "Take notes. That's it, that's the tweet.",
+        background_color: "#f2f2f2",
+        theme_color: "#f2f2f2",
+        start_url: './',
+        publicPath: './',
+        icons: [
+          {
+            src: path.resolve('src/images/logo.png'),
+            sizes: [96, 128, 192, 256, 384, 512],
+            destination: path.join('assets', 'icons'),
+          },
+        ],
       })
     ],
 
     module: {
       rules: [
         // ADD RULES
+        {
+          test: /\.css$/i,
+          use: ['style-loader', 'css-loader'],
+        },
+        {
+          test: /\.m?js$/,
+          exclude: /node_modules/,
+          // We use babel-loader in order to use ES6.
+          use: {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env'],
+              plugins: ['@babel/plugin-proposal-object-rest-spread', '@babel/transform-runtime'],
+            },
+          },
+        },
       ],
     },
   };
