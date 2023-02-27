@@ -1,6 +1,6 @@
 # **text-editor**
 
-> This repository utilizes Progressive Web Applications and WebPacks to create a text-editor that functions both on the browser as well as asynchronously offline. It does so through service workers, localStore, and IndexDB. 
+> This repository utilizes Progressive Web Applications and WebPacks to create a text-editor that functions both on the browser as well as asynchronously offline. It does so through service workers, localStore, and IndexDB. The deployed application can be found by [clicking here](https://tranquil-tor-95838.herokuapp.com/).
 
 ![A preview of the deployed application.](./client/dist/assets/../../src/images/te_001.png)
 
